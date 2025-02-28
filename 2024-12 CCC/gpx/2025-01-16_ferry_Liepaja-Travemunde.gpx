@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="overpass-turbo"><metadata><desc>Filtered OSM data converted to GPX by overpass turbo</desc><copyright author="The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."/><time>2025-02-11T15:33:52Z</time></metadata><trk><name>Travemünde – Liepāja</name><desc>bicycle=yes
+brand=Stena Line
+brand:wikidata=Q833903
+duration=22:30
+foot=yes
+hgv=yes
+motor_vehicle=yes
+name=Travemünde – Liepāja
+name:de=Travemünde – Liepāja
+name:lv=Trāveminde – Liepāja
+name:ru=Травемюнде — Лиепая
+operator=Stena Line
+operator:addr:country=SE
+operator:official_name=Stena Line Scandinavia AB
+operator:wikidata=Q833903
+route=ferry
+seamark:ferry_route:category=free
+seamark:type=ferry_route
+trailer=yes</desc><link href="http://osm.org/browse/way/128069455"/><trkseg><trkpt lat="53.9371837" lon="10.8603097"/><trkpt lat="53.9385008" lon="10.8637209"/><trkpt lat="53.9387992" lon="10.8661756"/><trkpt lat="53.9419167" lon="10.8640207"/><trkpt lat="53.9451967" lon="10.8625098"/><trkpt lat="53.9476312" lon="10.8618269"/><trkpt lat="53.9501284" lon="10.8623671"/><trkpt lat="53.9525935" lon="10.8643842"/><trkpt lat="53.9577441" lon="10.8746993"/><trkpt lat="53.9595144" lon="10.883751"/><trkpt lat="53.9601906" lon="10.8871987"/><trkpt lat="53.9615019" lon="10.8905651"/><trkpt lat="53.9649021" lon="10.8960261"/><trkpt lat="53.9787578" lon="10.9135659"/><trkpt lat="53.9973095" lon="10.9467596"/><trkpt lat="54.1611079" lon="11.2764501"/><trkpt lat="54.2460318" lon="11.5229381"/><trkpt lat="54.330006" lon="11.7682514"/><trkpt lat="54.4047899" lon="11.9988139"/><trkpt lat="54.417399" lon="12.1273247"/><trkpt lat="54.4595655" lon="12.208847"/><trkpt lat="54.5186777" lon="12.2399106"/><trkpt lat="54.6000767" lon="12.2848093"/><trkpt lat="54.7698441" lon="12.7242212"/><trkpt lat="54.8327218" lon="13.0802867"/><trkpt lat="54.8598485" lon="13.2171567"/><trkpt lat="55.0320215" lon="14.0441417"/><trkpt lat="55.0442824" lon="14.1063833"/><trkpt lat="55.1051543" lon="14.189075"/><trkpt lat="55.1940391" lon="14.3485722"/><trkpt lat="55.4013675" lon="14.6343387"/><trkpt lat="55.6209068" lon="15.3465584"/><trkpt lat="55.7703769" lon="16.2521565"/><trkpt lat="55.8980079" lon="17.0293481"/><trkpt lat="56.0268635" lon="17.8153402"/><trkpt lat="56.1593054" lon="18.6288591"/><trkpt lat="56.3114829" lon="19.5628376"/><trkpt lat="56.4329615" lon="20.3102396"/><trkpt lat="56.5230722" lon="20.8642224"/><trkpt lat="56.5238549" lon="20.8702616"/><trkpt lat="56.5245425" lon="20.8770442"/><trkpt lat="56.5249651" lon="20.882581"/><trkpt lat="56.5279984" lon="20.9622962"/><trkpt lat="56.5289357" lon="20.9690983"/><trkpt lat="56.5302847" lon="20.9756536"/><trkpt lat="56.5326514" lon="20.9829171"/><trkpt lat="56.5326786" lon="20.9850414"/><trkpt lat="56.5320065" lon="20.9863503"/><trkpt lat="56.5308705" lon="20.9869296"/><trkpt lat="56.5291984" lon="20.9871013"/><trkpt lat="56.5276528" lon="20.988775"/><trkpt lat="56.5271108" lon="20.9906847"/><trkpt lat="56.527451" lon="20.9946544"/><trkpt lat="56.527623" lon="20.9960302"/></trkseg></trk></gpx>

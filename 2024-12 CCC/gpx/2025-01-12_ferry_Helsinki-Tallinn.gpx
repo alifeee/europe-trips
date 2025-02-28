@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="overpass-turbo"><metadata><desc>Filtered OSM data converted to GPX by overpass turbo</desc><copyright author="The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."/><time>2025-02-11T15:30:46Z</time></metadata><trk><name>Helsinki–Tallinn</name><desc>bicycle=yes
+duration=2:30
+ferry=trunk
+foot=yes
+hgv=yes
+int_ref=E 67
+motor_vehicle=yes
+motorcar=yes
+name=Helsinki–Tallinn
+name:et=Tallinn–Helsingi
+name:fi=Helsinki–Tallinna
+name:sv=Helsingfors-Tallinn
+operator=Viking Line
+route=ferry</desc><link href="http://osm.org/browse/way/140671313"/><trkseg><trkpt lat="59.4453913" lon="24.7625615"/><trkpt lat="59.4458019" lon="24.7636454"/><trkpt lat="59.4486981" lon="24.7756621"/><trkpt lat="59.4492221" lon="24.7764223"/><trkpt lat="59.4502644" lon="24.7769272"/><trkpt lat="59.4710818" lon="24.7654986"/><trkpt lat="59.6064108" lon="24.6861362"/><trkpt lat="60.1036001" lon="24.982787"/><trkpt lat="60.1186897" lon="24.9814508"/><trkpt lat="60.1398056" lon="24.9932891"/><trkpt lat="60.1431498" lon="24.9966431"/><trkpt lat="60.1494571" lon="25.0001486"/><trkpt lat="60.1556034" lon="24.9997603"/><trkpt lat="60.1592565" lon="24.9824818"/><trkpt lat="60.1624813" lon="24.9706631"/><trkpt lat="60.1633799" lon="24.9666847"/><trkpt lat="60.1640336" lon="24.9643572"/><trkpt lat="60.1642009" lon="24.9640468"/><trkpt lat="60.1642838" lon="24.9640412"/><trkpt lat="60.1643551" lon="24.9641848"/><trkpt lat="60.1643182" lon="24.9647314"/><trkpt lat="60.1639885" lon="24.9658523"/></trkseg></trk></gpx>

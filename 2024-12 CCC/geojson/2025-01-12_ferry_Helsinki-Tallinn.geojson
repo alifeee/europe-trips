@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "tracks",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Helsinki–Tallinn", "desc": "bicycle=yes\nduration=2:30\nferry=trunk\nfoot=yes\nhgv=yes\nint_ref=E 67\nmotor_vehicle=yes\nmotorcar=yes\nname=Helsinki–Tallinn\nname:et=Tallinn–Helsingi\nname:fi=Helsinki–Tallinna\nname:sv=Helsingfors-Tallinn\noperator=Viking Line\nroute=ferry", "link1_href": "http://osm.org/browse/way/140671313" }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 24.7625615, 59.4453913 ], [ 24.7636454, 59.4458019 ], [ 24.7756621, 59.4486981 ], [ 24.7764223, 59.4492221 ], [ 24.7769272, 59.4502644 ], [ 24.7654986, 59.4710818 ], [ 24.6861362, 59.6064108 ], [ 24.982787, 60.1036001 ], [ 24.9814508, 60.1186897 ], [ 24.9932891, 60.1398056 ], [ 24.9966431, 60.1431498 ], [ 25.0001486, 60.1494571 ], [ 24.9997603, 60.1556034 ], [ 24.9824818, 60.1592565 ], [ 24.9706631, 60.1624813 ], [ 24.9666847, 60.1633799 ], [ 24.9643572, 60.1640336 ], [ 24.9640468, 60.1642009 ], [ 24.9640412, 60.1642838 ], [ 24.9641848, 60.1643551 ], [ 24.9647314, 60.1643182 ], [ 24.9658523, 60.1639885 ] ] ] } }
+]
+}
