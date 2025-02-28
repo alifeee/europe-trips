@@ -1,0 +1,8 @@
+2023-07-26 train Hull -> Dover
+2023-07-26 ferry Dover -> Calais
+2023-07-26 train Calais -> Lille
+2023-07-27 train Lille -> Maastricht
+2023-07-30 train Maastricht -> Paris
+2023-08-02 train Paris -> Calais
+2023-08-02 ferry Calais -> Dover
+2023-08-02 train Dover -> London

@@ -1,0 +1,3 @@
+2018-08-28 plane Doncaster(?) -> Paris
+2018-09-06 coach Paris -> London
+2018-09-06 train London -> Hull
