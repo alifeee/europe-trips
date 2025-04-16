@@ -1,0 +1,5 @@
+see also https://github.com/alifeee/blummit-2025/
+
+GPX exported with
+
+ocat --user alfie --device phone --format linestring --from "2025-04-04T17:00" --to "2025-04-13T21:10" > /var/www/static/owntracks/alfie.geojson
