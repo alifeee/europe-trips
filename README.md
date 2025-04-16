@@ -2,6 +2,8 @@
 
 A collection of GPX/GeoJson traces from trips to Europe. They look the best when trains are involved. The best reason to be anti-flying.
 
+view on <https://alifeee.co.uk/europe-trips/>
+
 Trips:
 
 - [2018-08 Paris](./2018-08%20Paris/)
