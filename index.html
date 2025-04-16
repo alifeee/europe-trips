@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>alifeee's Europe trips</title>
+
+    <meta
+      name="description"
+      content="all or most of alifeee's trips to Europe"
+    />
+
+    <!-- embed metas - https://ogp.me/ -->
+    <meta property="og:title" content="alifeee's Europe trips" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alifeee.co.uk/europe-trips/" />
+    <meta
+      property="og:image"
+      content="https://alifeee.co.uk/europe-trips/og-image.png"
+    />
+    <meta
+      property="og:description"
+      content="all or most of alifeee's trips to Europe"
+    />
+    <meta property="og:locale" content="en_GB" />
+
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+
+    <script src="https://unpkg.com/maplibre-gl@^5.3.1/dist/maplibre-gl.js"></script>
+    <link
+      href="https://unpkg.com/maplibre-gl@^5.3.1/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        inset: 0;
+      }
+      #legend {
+        position: absolute;
+        background: #fefefe;
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: 2rem;
+        border: 2px solid black;
+      }
+      #legend h1 {
+        margin: 0;
+      }
+      #legend p {
+        margin: 0;
+      }
+      #legend ul {
+        margin: 0.5rem 0 0.25rem;
+      }
+      #legend .key {
+        list-style: none;
+      }
+      #legend .key li {
+        position: relative;
+      }
+      #legend .key li::before {
+        content: "---";
+        color: var(--c);
+        position: absolute;
+        top: -0.75rem;
+        left: -2.5rem;
+        font-size: 2rem;
+      }
+      #legend hr {
+        border-color: aliceblue;
+        color: aliceblue;
+      }
+      #legend button {
+        margin: auto;
+        background: none;
+        border: none;
+        text-decoration: underline;
+        width: 100%;
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <section id="legend">
+      <h1>Europe trips</h1>
+      <details open>
+        <summary>All my trips to Europe (ish)</summary>
+        <ul class="key">
+          <li style="--c: #00aa00">2018-08 Paris</li>
+          <li style="--c: #0000aa">
+            <del>2022-07 interrail</del> (to be
+            <a
+              href="https://github.com/alifeee/europe-trips/blob/main/2022-07%20interrail/trip.txt"
+              >compiled</a
+            >)
+          </li>
+          <li style="--c: #aa00aa">
+            <del>2023-07 kulupu Elopa pi toki pona</del> (to be
+            <a
+              href="https://github.com/alifeee/europe-trips/blob/main/2023-07%20keptp/trip.txt"
+              >compiled</a
+            >)
+          </li>
+          <li style="--c: #aa0000">
+            2024-12
+            <a href="https://en.wikipedia.org/wiki/Chaos_Communication_Congress"
+              >CCC</a
+            >
+          </li>
+          <li style="--c: #aaaa00">
+            2025-04 <a href="https://alifeee.co.uk/blummit-2025/">Blummit</a>
+          </li>
+        </ul>
+        <hr />
+        <p style="text-align: center">
+          traces created and recorded via various means /
+          <a href="https://github.com/alifeee/europe-trips/">source</a>
+        </p>
+        <button
+          onclick="document.querySelector('#legend details').removeAttribute('open')"
+        >
+          show less…
+        </button>
+      </details>
+    </section>
+    <script>
+      var map = new maplibregl.Map({
+        container: "map",
+        projection: {
+          type: "globe",
+        },
+        style: "https://demotiles.maplibre.org/style.json",
+        center: [0, 0],
+        zoom: 1,
+      });
+
+      function plot(filename, colour) {
+        fetch(filename)
+          .then((data) => data.json())
+          .then((json) => {
+            map.addSource(filename, {
+              type: "geojson",
+              data: json,
+            });
+            map.addLayer({
+              id: filename,
+              type: "line",
+              source: filename,
+              layout: {
+                "line-join": "round",
+                "line-cap": "round",
+              },
+              paint: {
+                "line-color": colour,
+                "line-width": 5,
+              },
+            });
+          });
+      }
+      map.on("load", () => {
+        map.fitBounds([-9.62, 41.9, 25.851, 66.285]);
+
+        plot("2018-08 Paris/all.geojson", "#00aa00");
+        plot("2024-12 CCC/all.geojson", "#aa0000");
+        plot("2025-04 blummit/all.geojson", "#aaaa00");
+      });
+    </script>
+  </body>
+</html>
