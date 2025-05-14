@@ -35,6 +35,8 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js"></script>
 
+    <link rel="preload" href="all.json" as="fetch" />
+
     <style>
       html,
       body {
@@ -97,23 +99,33 @@
       <details open>
         <summary>All my trips to Europe (ish)</summary>
         <ul class="key">
-          <li style="--c: #00aa00">2018-08 Paris</li>
-          <li style="--c: #0000aa">2022-07 interrail (approx.)</li>
+          <li style="--c: #00aa00">
+            <input type="checkbox" checked id="paris" autocomplete="off" />
+            <label for="paris">2018-08 Paris</label>
+          </li>
+          <li style="--c: #0000aa">
+            <input type="checkbox" checked id="interrail" autocomplete="off" />
+            <label for="interrail">2022-07 interrail (approx.) </label>
+          </li>
           <li style="--c: #aa00aa">
-            <del>2023-07 kulupu Elopa pi toki pona</del> (to be
-            <a
-              href="https://github.com/alifeee/europe-trips/blob/main/2023-07%20keptp/trip.txt"
-              >compiled</a
-            >)
+            <input type="checkbox" checked id="keptp" autocomplete="off" />
+            <label for="keptp">2023-07 kulupu Elopa pi toki pona</label>
           </li>
           <li style="--c: #aa0000">
-            2024-12
-            <a href="https://en.wikipedia.org/wiki/Chaos_Communication_Congress"
-              >CCC</a
-            >
+            <input type="checkbox" checked id="ccc" autocomplete="off" />
+            <label for="ccc">
+              2024-12
+              <a
+                href="https://en.wikipedia.org/wiki/Chaos_Communication_Congress"
+                >CCC</a
+              >
+            </label>
           </li>
           <li style="--c: #aaaa00">
-            2025-04 <a href="https://alifeee.co.uk/blummit-2025/">Blummit</a>
+            <input type="checkbox" checked id="blummit" autocomplete="off" />
+            <label for="blummit">
+              2025-04 <a href="https://alifeee.co.uk/blummit-2025/">Blummit</a>
+            </label>
           </li>
         </ul>
         <hr />
@@ -129,6 +141,16 @@
       </details>
     </section>
     <script>
+      const colour_cycle = [
+        "#00aa00",
+        "#0000aa",
+        "#aa00aa",
+        "#aa0000",
+        "#aaaa00",
+      ];
+      let colour_choices = {};
+      let layer_ids = [];
+
       var map = new maplibregl.Map({
         container: "map",
         projection: {
@@ -139,37 +161,71 @@
         zoom: 1,
       });
 
-      function plot(filename, colour) {
-        fetch(filename)
-          .then((data) => data.json())
-          .then((json) => {
-            map.addSource(filename, {
-              type: "geojson",
-              data: json,
-            });
-            map.addLayer({
-              id: filename,
-              type: "line",
-              source: filename,
-              layout: {
-                "line-join": "round",
-                "line-cap": "round",
-              },
-              paint: {
-                "line-color": colour,
-                "line-width": 5,
-              },
-            });
-          });
+      function add_layer(id) {
+        map.addLayer({
+          id: id,
+          type: "line",
+          source: id,
+          layout: {
+            "line-join": "round",
+            "line-cap": "round",
+          },
+          paint: {
+            "line-color": colour_choices[id] ?? "#000000",
+            "line-width": 5,
+          },
+        });
       }
+
+      function add_layer_by_index(index) {
+        add_layer(layer_ids[index]);
+      }
+      function remove_layer_by_index(index) {
+        map.removeLayer(layer_ids[index]);
+      }
+
       map.on("load", () => {
         map.fitBounds([-9.62, 41.9, 25.851, 66.285]);
 
-        plot("2018-08 Paris/all.geojson", "#00aa00");
-        plot("2022-07 interrail/all.geojson", "#0000aa");
-        // plot("2023-07 keptp/all.geojson", "#aa00aa");
-        plot("2024-12 CCC/all.geojson", "#aa0000");
-        plot("2025-04 blummit/all.geojson", "#aaaa00");
+        fetch("all.json")
+          .then((response) => response.json())
+          .then((json) => {
+            Object.entries(json).forEach(([trip, geojson], index) => {
+              let colour = colour_cycle[index];
+              colour_choices[trip] = colour;
+              console.group(
+                `adding <${trip}> to map with colour %c${colour}`,
+                `color: ${colour}`
+              );
+              console.log(geojson);
+              console.groupEnd();
+
+              layer_ids.push(trip);
+
+              map.addSource(trip, {
+                type: "geojson",
+                data: geojson,
+              });
+
+              add_layer(trip);
+            });
+          });
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const checkboxes = document.querySelectorAll(
+          "#legend .key input[type=checkbox]"
+        );
+        checkboxes.forEach((checkbox, index) => {
+          checkbox.addEventListener("change", (e) => {
+            let cb = e.target;
+            if (cb.checked) {
+              add_layer_by_index(index);
+            } else {
+              remove_layer_by_index(index);
+            }
+          });
+        });
       });
     </script>
   </body>
