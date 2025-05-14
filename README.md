@@ -10,6 +10,7 @@ Trips:
 - [2022-07 interrail](./2022-07%20interrail/)
 - [2023-07 keptp](./2023-07%20keptp/)
 - [2024-12 CCC](./2024-12%20CCC/)
+- [2025-04 blummit](./2025-04%20blummit/)
 
 ![screenshot of a map with a GPS trace overlaid](./images/CCC_trip_geojson.png)
 
@@ -62,12 +63,45 @@ for file in gpx/*; do
   bn="${file#*/}"
   ogr2ogr "geojson/${bn%*.gpx}.geojson" "${file}" tracks
 done
+```
+
+…combine geojson
+
+```bash
 # combine geojson
+endfile="all.geojson"
 while read file; do
   cat "${file}";
-done <<< $(find geojson -type f | sort -n) | jq --slurp '{
+done <<< $(find geojson -type f | sort -n) | jq -c --slurp '{
     "type": "FeatureCollection",
-    "name": "hitchhikes",
+    "name": "combined",
     "features": ([.[] | .features[0]])
-}' > all.geojson
+}' > "${endfile}"
+# remove "messages" and "times" from properties (from brouter train router)
+#   and remove height coordinate from coordinate strings
+cat "${endfile}" \
+  | jq -c '
+    .features[].properties |= del(.messages) |
+    .features[].properties |= del(.times) |
+    .features[] |= (
+      if .geometry.type == "MultiLineString" then
+        .geometry.coordinates |= (.[] |= (.[] |= del(.[2])))
+      elif .geometry.type == "LineString" then
+        .geometry.coordinates |= (.[] |= del(.[2]))
+      else
+        .
+      end
+  )'\
+  | sponge "${endfile}"
+```
+
+combine all geojson files into one:
+
+```bash
+files=("2018-08 Paris/all.geojson" "2022-07 interrail/all.geojson" "2023-07 keptp/all.geojson" "2024-12 CCC/all.geojson" "2025-04 blummit/all.geojson")
+for file in "${files[@]}"; do
+  printf '{"key": "%s", "value": ' "${file}"
+  cat "${file}" | jq -c
+  printf "}"
+done | jq --slurp -c 'from_entries' > all.json
 ```
