@@ -1,3 +1,5 @@
+> [!CAUTION]
+> MOVED! see <https://git.alifeee.net/europe-trips/about/>
 > ![CAUTION]
 > MOVED! see <https://git.alifeee.net/europe-trips/about/>
 # trips-to-europe
