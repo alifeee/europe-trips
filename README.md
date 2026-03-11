@@ -1,7 +1,5 @@
 > [!CAUTION]
 > MOVED! see <https://git.alifeee.net/europe-trips/about/>
-> ![CAUTION]
-> MOVED! see <https://git.alifeee.net/europe-trips/about/>
 # trips-to-europe
 
 A collection of GPX/GeoJson traces from trips to Europe. They look the best when trains are involved. The best reason to be anti-flying.
